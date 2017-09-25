@@ -47,43 +47,5 @@
 
     </update>
 
-    <update id="updateByPhone">
-        <![CDATA[
-          update t_admin set phone = #{admin.phone}, password = #{admin.password} where phone = #{phone}
-        ]]>
-    </update>
-
-    <delete id="removeById" parameterType="integer">
-        delete from t_admin where id = #{id}
-    </delete>
-
-    <select id="queryByCriteria" resultMap="adminMap">
-        <!--
-        select * from t_admin where 1 = 1
-        <if test="phone != null and phone != ''">
-            and phone = #{phone}
-        </if>
-        <if test="gender != null">
-            and gender = #{gender}
-        </if>
-        <if test="address != null and address != ''">
-            and address = #{address}
-        </if>
-        -->
-
-        select * from t_admin
-        <where>
-            <if test="phone != null and phone != ''">
-                and phone = #{phone}
-            </if>
-            <if test="gender != null">
-                and gender = #{gender}
-            </if>
-            <if test="address != null and address != ''">
-                and address like concat('%', #{address}, '%')
-            </if>
-        </where>
-
-    </select>
 
 </mapper>
