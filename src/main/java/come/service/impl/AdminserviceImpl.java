@@ -18,4 +18,11 @@ public class AdminserviceImpl implements Adminservice{
     public Admin getByphone(String phone) {
         return adminDao.getByPhone(phone);
     }
+    /*
+    * @param admin 对象
+    * create by xyz 2017/9/25
+    * */
+    public void updateAdmin(Admin admin) {
+        adminDao.update(admin);
+    }
 }
